@@ -8,5 +8,8 @@ router.get('/', (req,res) => {
 router.get('/:id', (req,res) => {
     queries.readStudentById(req.params.id).then(student => res.status(200).send({ student }))
 })
+router.post('/', (req,res) => {
+    queries.createStudent(req.body).then(newStudent => res.status(201).send({ newStudent }))
+})
 
 module.exports = router
